@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "kubescan-guard"
+version = "0.1.0"
+description = "Container & Kubernetes Security Auditor - Dockerfile scanning, K8s manifest auditing, CIS benchmark compliance"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [{name = "KubeScan Guard Contributors"}]
+keywords = ["kubernetes", "docker", "container-security", "cis-benchmark", "devsecops"]
+dependencies = []
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+[project.scripts]
+kubescan = "kubescan.__main__:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
